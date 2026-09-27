@@ -13,20 +13,23 @@ function calcularComision(numeroVentas, precioProducto) {
 function calcular(){
 
     //recuperamos propiedades de las cajas de texto
-    let cmpSueldoBase = document.getElementById("txtSueldoBase");
-    let cmpVentas = document.getElementById("txtVentas");
-    let cmpPrecio = document.getElementById("txtPrecio");
+    //let cmpSueldoBase = document.getElementById("txtSueldoBase");
+
+   // let cmpVentas = document.getElementById("txtVentas");
+   //let cmpPrecio = document.getElementById("txtPrecio");
 
     //recuperamos los valores de las cajas de texto
-    let sueldoBaseStr = cmpSueldoBase.value;
-    let ventasStr = cmpVentas.value;
-    let precioStr = cmpPrecio.value;
+    //let sueldoBaseStr = cmpSueldoBase.value;
+    let sueldoBaseStr = recuperarTexto("txtSueldoBase");
+    let ventasStr = recuperarTexto("txtVentas");
+    let precioStr = recuperarTexto("txtPrecio");
 
     //convertimos los valores a tipo numerico
 
-    let sueldoBase = parseFloat(sueldoBaseStr);
-    let numeroVentas = parseInt(ventasStr);
-    let precioProducto = parseFloat(precioStr);
+    //let sueldoBase = parseFloat(sueldoBaseStr);
+    let sueldoBase = recuperarFloat("txtSueldoBase");
+    let numeroVentas = recuperarEntero("txtVentas");
+    let precioProducto = recuperarFloat("txtPrecio");
 
     //calculamos la comisión
     let comision = calcularComision(numeroVentas, precioProducto);
@@ -35,12 +38,12 @@ function calcular(){
 
 
 
-    let spSueldoBase = document.getElementById("spSueldoBase");
-    let spComision = document.getElementById("spComision");
-    let spTotal = document.getElementById("spTotal");
+    //let spSueldoBase = document.getElementById("spSueldoBase");
+    //let spComision = document.getElementById("spComision");
+    //let spTotal = document.getElementById("spTotal");
 
 
-    spSueldoBase.textContent = sueldoBase;
-    spComision.textContent = comision;
-    spTotal.textContent = total;
+    mostrarEnSpan("spSueldoBase", sueldoBase);
+    mostrarEnSpan("spComision", comision);
+    mostrarEnSpan("spTotal", total);
 }
