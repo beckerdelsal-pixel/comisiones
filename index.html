@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="ventas.js"></script>
     <script src="utilitarios.js"></script>
 </head>
+
 <body>
 
     <div class="contenedor">
@@ -15,17 +17,20 @@
 
         <div class="campo">
             <label for="txtSueldoBase">Salario Base:</label>
-            <input type="text" id="txtSueldoBase">
+            <input type="text" id="txtSueldoBase" onblur="validarInput('txtSueldoBase', 'errorSueldoBase');">
+            <span id="errorSueldoBase" class="mensaje-error"></span>
         </div>
 
         <div class="campo">
             <label for="txtVentas">Número de ventas:</label>
-            <input type="text" id="txtVentas">
+            <input type="text" id="txtVentas" onblur="validarInput('txtVentas', 'errorVentas');">
+            <span id="errorVentas" class="mensaje-error"></span>
         </div>
 
         <div class="campo">
             <label for="txtPrecio">Precio del producto:</label>
-            <input type="text" id="txtPrecio">
+            <input type="text" id="txtPrecio" onblur="validarInput('txtPrecio', 'errorPrecio');">
+            <span id="errorPrecio" class="mensaje-error"></span>
         </div>
 
         <button onclick="calcular()">Calcular Comisión</button>
@@ -40,5 +45,5 @@
     </div>
 
 </body>
-</html>
 
+</html>

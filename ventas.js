@@ -10,13 +10,50 @@ function calcularComision(numeroVentas, precioProducto) {
     return comision;
 }
 
-function calcular(){
+function validarInput(idInput, idError) {
+    let input = document.getElementById(idInput);
+    let mensaje = document.getElementById(idError);
+    let valor = input.value.trim();
+
+    // Limpiar mensaje anterior
+    mensaje.textContent = "";
+
+    // No puede estar vacío
+    if (valor === "") {
+        mensaje.textContent = "Este campo no puede estar vacío.";
+        return false;
+    }
+
+    // Solo números
+    if (!/^\d+$/.test(valor)) {
+        mensaje.textContent = "Solo se permiten números.";
+        return false;
+    }
+
+    // Máximo 5 dígitos
+    if (valor.length > 5) {
+        mensaje.textContent = "Máximo 5 dígitos.";
+        return false;
+    }
+
+    return true;
+}
+
+function calcular() {
+
+    if (
+        !validarInput("txtSueldoBase", "errorSueldoBase") ||
+        !validarInput("txtVentas", "errorVentas") ||
+        !validarInput("txtPrecio", "errorPrecio")
+    ) {
+        return;
+    }
 
     //recuperamos propiedades de las cajas de texto
     //let cmpSueldoBase = document.getElementById("txtSueldoBase");
 
-   // let cmpVentas = document.getElementById("txtVentas");
-   //let cmpPrecio = document.getElementById("txtPrecio");
+    // let cmpVentas = document.getElementById("txtVentas");
+    //let cmpPrecio = document.getElementById("txtPrecio");
 
     //recuperamos los valores de las cajas de texto
     //let sueldoBaseStr = cmpSueldoBase.value;
